@@ -1,3 +1,4 @@
+# game characters
 heroes = {
          "Batman": {"identity": "Bruce Wayne", "power": "martial arts",
                     "health points": 150},
@@ -6,7 +7,7 @@ heroes = {
          "The Flash": {"identity": "Barry Allen", "power": "super speed",
                        "health points": 90}
          }
-
+# game locations
 locations = {"Central City": "home of The Flash",
              "Hall of Justice": "headquarters for the Justice League",
              "Bat Cave": "subterranean headquarters of Batman",
@@ -14,7 +15,7 @@ locations = {"Central City": "home of The Flash",
              "Metropolis": "home of Superman",
              "Themyscira": "birth place of Wonder Woman"
              }
-
+# inventory paired with characters
 inventory = {"Wonder Woman": {"Lasso of Truth":
                               {"description": "extracts truth from people",
                                "damage": 0, "protection": 5},
@@ -40,7 +41,7 @@ inventory = {"Wonder Woman": {"Lasso of Truth":
                             "protection when travelling at super speed",
                             "damage": 0, "protection": 100}}
              }
-
+# print out the characters with their characteristics
 for hero in heroes:
     i = heroes[hero]["identity"]
     p = heroes[hero]["power"]
@@ -49,11 +50,12 @@ for hero in heroes:
     print(f"{hero}'s super power is {p}")
     print(f"{hero} has {hp} health points")
     print("\n")
-
+# print out the locations and their descriptions
 for place in locations:
     description = locations[place]
     print(f"{place} is the {description}.")
-
+# print out the invetory for each character, along with the characteristics
+# of each item
 for hero in inventory:
     print(f"{hero}'s Inventory:")
     for item in inventory[hero]:
