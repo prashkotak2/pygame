@@ -1,10 +1,10 @@
 heroes = {
-       "Batman": {"identity": "Bruce Wayne", "power": "martial arts",
-                  "health points": 150},
-       "Wonder Woman": {"identity": "Diana Prince", "power": "super strength",
-                        "health points": 200},
-       "The Flash": {"identity": "Barry Allen", "power": "super speed",
-                     "health points": 90}
+         "Batman": {"identity": "Bruce Wayne", "power": "martial arts",
+                    "health points": 150},
+         "Wonder Woman": {"identity": "Diana Prince", "power": "super strength",
+                          "health points": 200},
+         "The Flash": {"identity": "Barry Allen", "power": "super speed",
+                       "health points": 90}
          }
 
 locations = {"Central City": "home of The Flash",
@@ -25,25 +25,21 @@ inventory = {"Wonder Woman": {"Lasso of Truth":
                               "Sword of Athena":
                               {"description":
                                "magically-empowered sword wielded",
-                               "damage": 500, "protection": 0}
-                              },
-             "Batman": {"Batarang":
-                        {"description": "boomerang shaped like a bat",
-                         "damage": 10, "protection": 0},
-                        "Grapple hook":
-                        {"description": "pear-shooting spring-based device",
-                         "damage": 5, "protection": 0},
-                        "Sonic Bat Device":
-                        {"description":
-                         "high frequency emitter allowing the control of bats",
-                         "damage": 15, "protection": 100}
-                        },
+                               "damage": 500, "protection": 0}},
+            "Batman": {"Batarang":
+                       {"description": "boomerang shaped like a bat",
+                        "damage": 10, "protection": 0},
+                       "Grapple hook":
+                       {"description": "pear-shooting spring-based device",
+                        "damage": 5, "protection": 0},
+                       "Sonic Bat Device":
+                       {"description":
+                        "high frequency emitter allowing the control of bats",
+                        "damage": 15, "protection": 100}},
              "The Flash": {"Red suit":
                            {"description":
                             "protection when travelling at super speed",
-                            "damage": 0, "protection": 100}
-                           },
-
+                            "damage": 0, "protection": 100}}
              }
 
 for hero in heroes:
@@ -52,7 +48,7 @@ for hero in heroes:
     hp = heroes[hero]["health points"]
     print(f"{hero}'s secret identity is {i}")
     print(f"{hero}'s super power is {p}")
-    print(f"{hero} has {p} health points")
+    print(f"{hero} has {hp} health points")
     print("\n")
 
 for place in locations:
@@ -60,7 +56,9 @@ for place in locations:
     print(f"{place} is the {description}.")
 
 for hero in inventory:
-    i = inventory[hero]
-    item = inventory[hero][i]
     print(f"{hero}'s Inventory:")
-    print(f"* {item}")
+    for item in inventory[hero]:
+        print(f"* {item}")
+        for characteristics in inventory[hero][item]:
+            detail = inventory[hero][item][characteristics]
+            print(f"   {characteristics}: {detail}")
