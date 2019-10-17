@@ -1,2 +1,2 @@
-# heros
+# heroes
 Super Hero Python Dictionary
