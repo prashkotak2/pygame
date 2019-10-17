@@ -14,8 +14,7 @@ locations = {"Central City": "home of The Flash",
              "Metropolis": "home of Superman",
              "Themyscira": "birth place of Wonder Woman"
              }
-# change to nested lists in Dictionary
-# https://stackoverflow.com/questions/45801578/multiple-nested-dictionaries-within-a-nested-dictionary
+
 inventory = {"Wonder Woman": {"Lasso of Truth":
                               {"description": "extracts truth from people",
                                "damage": 0, "protection": 5},
