@@ -30,7 +30,7 @@ map_tiles = {"Enemy Tile": {"description": "location of an enemy",
                               "may pick up items or move to another location"},
              "Supply Tile": {"description":
                              "location of protection and healing items",
-                             "abbreviation": "WT",
+                             "abbreviation": "ST",
                              "action": "must pick up the weapon to continue"},
              "Blank Tile": {"description":
                             "location with no items",
