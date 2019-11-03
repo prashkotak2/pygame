@@ -1,48 +1,115 @@
 # RPG based on the comic book series published by DC Comics
 # 12 issue run: April 1985 - March 1986
 import sys
+import hero_characteristics
+import map
+from tabulate import tabulate
 
 
 def play():
     """Print an action menu and allow for continous game play"""
     print("Justice League: Crisis on Infinite Earths")
-    print("Valid actions for current location")
     # valid directions and actions for the characters
-    valid_actions = {"directions": ["north", "south", "east", "west"],
-                     "actions": ["explore", "attack", "defend", "heal",
-                                 "quit"]}
+    action = ["quit", "characters", "map"]
+    directions = ["north", "south", "east", "west"]
     # print a list a valid actions before user input. Organized according to
     # possible direction and actions
-    for user_action in valid_actions:
-        if user_action == "directions":
-            print(f"Go in one of the following {user_action}:")
-            possible_directions = valid_actions["directions"]
-            for direction in possible_directions:
-                print(f"* {direction}")
-        else:
-            print(f"Complete one of the following {user_action}:")
-            possible_actions = valid_actions["actions"]
-            for action in possible_actions:
-                print(f"* {action}")
+    print_actions(action)
     while True:
         # after user input, print out the action choosen by the user
-        action_input = get_player_command()
-        direction = valid_actions["directions"]
-        action = valid_actions["actions"]
-        if action_input in direction:
-            print(f"Go {action_input}!")
-        elif action_input in action:
-            print(f"{action_input}!")
+        action_input = get_player_command("Action: ")
+        if action_input in action:
+            print(f"{action_input.title()}!")
             if action_input == "quit":
                 sys.exit()
+            elif action_input == "map":
+                choose_map()
+                choose_character()
+                add_action(action)
+            elif action_input == "characters":
+                choose_character()
+                choose_map()
+                add_action(action)
+            elif action_input == "move":
+                for d in directions:
+                    print(d)
+                user_direction = get_player_command("What direction?")
+                if user_direction in directions:
+                    print(f"Moving {user_direction}")
+                    print("\n")
+                else:
+                    print("Invalid direction")
+                    print("\n")
         else:
             print("Invalid action!")
+            print("\n")
 
 
-def get_player_command():
+def get_player_command(message):
     """Get user input and convert the string to lowercase"""
-    action_input = input("Action: ")
+    action_input = input(message)
     return action_input.lower()
+
+
+def choose_character():
+    """User chooses which hero they wish to play as"""
+    character = hero_characteristics.heroes
+    print("Possible Characters:")
+    for hero in character:
+        print(hero)
+    while True:
+        input = get_player_command("What character would you like to play?")
+        player = input.title()
+        if player in character:
+            print(f"Welcome, {player}!")
+            i = character[player]["identity"]
+            p = character[player]["power"]
+            hp = character[player]["health points"]
+            print(f"{player}'s secret identity is {i}")
+            print(f"{player}'s super power is {p}")
+            print(f"{player} has {hp} health points")
+            print("\n")
+            break
+        else:
+            print("Invalid Character")
+            print("\n")
+
+
+def choose_map():
+    """The player chooses which city they would like to play"""
+    city = map.city_level
+    print("Cities")
+    for place in city:
+        print(place)
+    while True:
+        input = get_player_command("What city do you want to start in? ")
+        city_choice = input.title()
+        if city_choice in city:
+            print(f"Welcome to {city_choice}!")
+            city_map = map.main_map[city_choice]
+            print(tabulate(city_map, tablefmt="plain"))
+            break
+        else:
+            print("Invalid location")
+            print("\n")
+
+
+def add_action(list):
+    """Unlock actions after characters and map is chosen"""
+    unlock_action = ["move", "attack", "defend", "heal"]
+    list.remove("map")
+    list.remove("characters")
+    for action in unlock_action:
+        list.append(action)
+    print_actions(list)
+    print("\n")
+
+
+def print_actions(action):
+    print(f"Complete one of the following actions:")
+    for user_action in action:
+        print(f"* {user_action}")
+    print("\n")
 
 
 play()
