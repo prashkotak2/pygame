@@ -4,16 +4,54 @@ import sys
 import hero_characteristics
 import map
 from tabulate import tabulate
+from time import sleep
 
 
 def play():
     """Print an action menu and allow for continous game play"""
-    print("Justice League: Crisis on Infinite Earths")
+    words = r"""
+       _              _    _
+      | |            | |  (_)
+      | | _   _  ___ | |_  _   ___  ___
+  _   | || | | |/ __|| __|| | / __|/ _ \
+ | |__| || |_| |\__ \| |_ | || (__|  __/
+  \____/  \__,_||___/ \__||_| \___|\___|
+  _
+ | |                                      _
+ | |      ___   __ _   __ _  _   _   ___ (_)
+ | |     / _ \ / _` | / _` || | | | / _ \
+ | |____|  __/| (_| || (_| || |_| ||  __/ _
+ |______|\___| \__,_| \__, | \__,_| \___|(_)
+                       __/ |
+                      |___/
+   _____        _       _
+  / ____|      (_)     (_)
+ | |      _ __  _  ___  _  ___    ___   _ __
+ | |     | '__|| |/ __|| |/ __|  / _ \ | '_ \
+ | |____ | |   | |\__ \| |\__ \ | (_) || | | |
+  \_____||_|   |_||___/|_||___/  \___/ |_| |_|
+  _____          __  _         _  _
+ |_   _|        / _|(_)       (_)| |
+   | |   _ __  | |_  _  _ __   _ | |_  ___
+   | |  | '_ \ |  _|| || '_ \ | || __|/ _ \
+  _| |_ | | | || |  | || | | || || |_|  __/
+ |_____||_| |_||_|  |_||_| |_||_| \__|\___|
+  ______              _    _
+ |  ____|            | |  | |
+ | |__    __ _  _ __ | |_ | |__   ___
+ |  __|  / _` || '__|| __|| '_ \ / __|
+ | |____| (_| || |   | |_ | | | |\__ \
+ |______|\__,_||_|    \__||_| |_||___/
+"""
+    for char in words:
+        sleep(0.005)
+        print(char, end=" ", flush=True)
     # valid directions and actions for the characters
     action = ["quit", "characters", "map"]
     directions = ["north", "south", "east", "west"]
     # print a list a valid actions before user input. Organized according to
     # possible direction and actions
+    print("\n")
     print_actions(action)
     while True:
         # after user input, print out the action choosen by the user
@@ -62,13 +100,7 @@ def choose_character():
         player = input.title()
         if player in character:
             print(f"Welcome, {player}!")
-            i = character[player]["identity"]
-            p = character[player]["power"]
-            hp = character[player]["health points"]
-            print(f"{player}'s secret identity is {i}")
-            print(f"{player}'s super power is {p}")
-            print(f"{player} has {hp} health points")
-            print("\n")
+            hero_characteristics.hero(character, player)
             break
         else:
             print("Invalid Character")

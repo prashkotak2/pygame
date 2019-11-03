@@ -44,20 +44,20 @@ vehicles = {"Wonder Woman": "Invisible Plane",
             }
 
 
-def hero(dictionary):
+def hero(dictionary, hero):
     """print out the characters with their characteristics"""
-    for hero in dictionary:
-        i = dictionary[hero]["identity"]
-        p = dictionary[hero]["power"]
-        hp = dictionary[hero]["health points"]
-        print(f"{hero}'s secret identity is {i}")
-        print(f"{hero}'s super power is {p}")
-        print(f"{hero} has {hp} health points")
-        print("\n")
+    # for hero in dictionary:
+    i = dictionary[hero]["identity"]
+    p = dictionary[hero]["power"]
+    hp = dictionary[hero]["health points"]
+    print(f"{hero}'s secret identity is {i}")
+    print(f"{hero}'s super power is {p}")
+    print(f"{hero} has {hp} health points")
+    print("\n")
 
 
-def hero_inventory():
-    """print out the invetory for each character, along with the characteristics
+def hero_inventory(inventory):
+    """print out the inventory for each character, along with the characteristics
     of each item"""
     for hero in inventory:
         print(f"{hero}'s Inventory:")
@@ -69,7 +69,7 @@ def hero_inventory():
     print("\n")
 
 
-def hero_vehicle():
+def hero_vehicle(vehicles):
     """print a list of the hero's vehicles"""
     for heroes in vehicles:
         vehicle = vehicles[heroes]
