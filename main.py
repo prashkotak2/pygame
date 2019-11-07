@@ -43,9 +43,9 @@ def play():
  | |____| (_| || |   | |_ | | | |\__ \
  |______|\__,_||_|    \__||_| |_||___/
 """
-    for char in words:
-        sleep(0.005)
-        print(char, end=" ", flush=True)
+    # for char in words:
+    #     sleep(0.005)
+    #     print(char, end=" ", flush=True)
     # valid directions and actions for the characters
     action = ["quit", "characters", "map"]
     directions = ["north", "south", "east", "west"]
@@ -69,6 +69,7 @@ def play():
                 choose_map()
                 add_action(action)
             elif action_input == "move":
+                # directions menu and options appear when move is choosen
                 for d in directions:
                     print(d)
                 user_direction = get_player_command("What direction?")
@@ -98,9 +99,15 @@ def choose_character():
     while True:
         input = get_player_command("What character would you like to play?")
         player = input.title()
+        # prevent input error if the user does not input The Flash
+        if player == "Flash":
+            player = "The Flash"
+        # print the choosen character with characteristics and inventory
         if player in character:
             print(f"Welcome, {player}!")
             hero_characteristics.hero(character, player)
+            inventory = hero_characteristics.inventory[player]
+            hero_characteristics.hero_inventory(inventory, player)
             break
         else:
             print("Invalid Character")
@@ -114,12 +121,14 @@ def choose_map():
     for place in city:
         print(place)
     while True:
+        # player chooses which city level they want play and then a random
+        # 5x5 map is generated and printed
         input = get_player_command("What city do you want to start in? ")
         city_choice = input.title()
         if city_choice in city:
             print(f"Welcome to {city_choice}!")
             city_map = map.main_map[city_choice]
-            print(tabulate(city_map, tablefmt="plain"))
+            print(tabulate(city_map, tablefmt="grid"))
             break
         else:
             print("Invalid location")

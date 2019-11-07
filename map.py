@@ -29,7 +29,7 @@ def generate_map(list):
     """randomly generate a 5x5 city map from tile types"""
     map = [[random.choice(list) for i in range(5)] for j in range(5)]
     # add boss and start tiles
-    replace_tile(map, "Boss Tile", "Start")
+    replace_tile(map, "Big Boss", "Start")
     return map
 
 
@@ -51,23 +51,23 @@ cities = {"Central City": "home of The Flash",
           "Themyscira": "birth place of Wonder Woman"
           }
 # map tile types
-map_tiles = {"Enemy Tile": {"description": "location of an enemy",
+map_tiles = {"Enemy": {"description": "location of an enemy",
                             "abbreviation": "ET",
                             "action": "must defeat the enemy to continue"},
-             "Boss Tile": {"description":
+             "Big Boss": {"description":
                            "Big Boss enemy location and the exit for the city",
                            "abbreviation": "BT",
                            "action":
                            "may run away or fight the boss to continue"},
-             "Weapons Tile": {"description": "location of a weapon",
+             "Weapons": {"description": "location of a weapon",
                               "abbreviation": "WT",
                               "action":
                               "may pick up items or move to another location"},
-             "Supply Tile": {"description":
+             "Supplies": {"description":
                              "location of protection and healing items",
                              "abbreviation": "ST",
                              "action": "must pick up the weapon to continue"},
-             "Blank Tile": {"description":
+             " ": {"description":
                             "location with no items",
                             "abbreviation": "BT",
                             "action": "may rest or move to another location"},
@@ -82,7 +82,7 @@ append_list(cities, city_level)
 # generate a list of tile types removing the start and boss tiles
 tile_types = []
 append_list(map_tiles, tile_types)
-tile_types.remove("Boss Tile")
+tile_types.remove("Big Boss")
 tile_types.remove("Start")
 
 # organize each city level and its map in a dictionary

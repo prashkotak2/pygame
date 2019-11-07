@@ -56,16 +56,15 @@ def hero(dictionary, hero):
     print("\n")
 
 
-def hero_inventory(inventory):
-    """print out the inventory for each character, along with the characteristics
-    of each item"""
-    for hero in inventory:
-        print(f"{hero}'s Inventory:")
-        for item in inventory[hero]:
-            print(f"* {item}")
-            for characteristics in inventory[hero][item]:
-                detail = inventory[hero][item][characteristics]
-                print(f"   {characteristics}: {detail}")
+def hero_inventory(inventory, hero):
+    """print out the inventory for the choosen character, along with the
+    characteristics of each item"""
+    print(f"{hero}'s Inventory:")
+    for item in inventory:
+        print(f"* {item}")
+        for characteristics in inventory[item]:
+            detail = inventory[item][characteristics]
+            print(f"   {characteristics}: {detail}")
     print("\n")
 
 
