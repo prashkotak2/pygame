@@ -52,25 +52,25 @@ cities = {"Central City": "home of The Flash",
           }
 # map tile types
 map_tiles = {"Enemy": {"description": "location of an enemy",
-                            "abbreviation": "ET",
-                            "action": "must defeat the enemy to continue"},
+                       "abbreviation": "ET",
+                       "action": "must defeat the enemy to continue"},
              "Big Boss": {"description":
-                           "Big Boss enemy location and the exit for the city",
-                           "abbreviation": "BT",
-                           "action":
-                           "may run away or fight the boss to continue"},
+                          "Big Boss enemy location and the exit for the city",
+                          "abbreviation": "BT",
+                          "action":
+                          "may run away or fight the boss to continue"},
              "Weapons": {"description": "location of a weapon",
-                              "abbreviation": "WT",
-                              "action":
-                              "may pick up items or move to another location"},
+                         "abbreviation": "WT",
+                         "action":
+                         "may pick up items or move to another location"},
              "Supplies": {"description":
-                             "location of protection and healing items",
-                             "abbreviation": "ST",
-                             "action": "must pick up the weapon to continue"},
+                          "location of protection and healing items",
+                          "abbreviation": "ST",
+                          "action": "must pick up the weapon to continue"},
              " ": {"description":
-                            "location with no items",
-                            "abbreviation": "BT",
-                            "action": "may rest or move to another location"},
+                   "location with no items",
+                   "abbreviation": "BT",
+                   "action": "may rest or move to another location"},
              "Start": {"description": "entrance to the city",
                        "abbreviation": "S",
                        "action": "may rest or move to another location"}

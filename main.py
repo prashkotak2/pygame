@@ -43,9 +43,9 @@ def play():
  | |____| (_| || |   | |_ | | | |\__ \
  |______|\__,_||_|    \__||_| |_||___/
 """
-    # for char in words:
-    #     sleep(0.005)
-    #     print(char, end=" ", flush=True)
+    for char in words:
+        sleep(0.005)
+        print(char, end=" ", flush=True)
     # valid directions and actions for the characters
     action = ["quit", "characters", "map"]
     directions = ["north", "south", "east", "west"]
