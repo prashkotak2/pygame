@@ -1,14 +1,3 @@
-# game characters
-heroes = {
-         "Batman": {"identity": "Bruce Wayne", "power": "martial arts",
-                    "health points": 150},
-         "Wonder Woman": {"identity": "Diana Prince",
-                          "power": "super strength",
-                          "health points": 200},
-         "The Flash": {"identity": "Barry Allen", "power": "super speed",
-                       "health points": 90}
-         }
-
 # inventory paired with characters
 inventory = {"Wonder Woman": {"Lasso of Truth":
                               {"description": "extracts truth from people",
@@ -35,32 +24,3 @@ inventory = {"Wonder Woman": {"Lasso of Truth":
                             "protection when travelling at super speed",
                             "damage": 0, "protection": 100}}
              }
-
-
-def hero(dictionary, hero):
-    """print out the characters with their characteristics"""
-    # for hero in dictionary:
-    i = dictionary[hero]["identity"]
-    p = dictionary[hero]["power"]
-    hp = dictionary[hero]["health points"]
-    print(f"{hero}'s secret identity is {i}")
-    print(f"{hero}'s super power is {p}")
-    print(f"{hero} has {hp} health points")
-    print("\n")
-
-
-def hero_inventory(inventory, hero):
-    """print out the inventory for the choosen character, along with the
-    characteristics of each item"""
-    print(f"{hero}'s Inventory:")
-    for item in inventory:
-        print(f"* {item}")
-        for characteristics in inventory[item]:
-            detail = inventory[item][characteristics]
-            print(f"   {characteristics}: {detail}")
-    print("\n")
-
-#
-# hero()
-# hero_inventory()
-# hero_vehicle()

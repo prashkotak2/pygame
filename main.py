@@ -1,7 +1,7 @@
 # RPG based on the comic book series published by DC Comics
 # 12 issue run: April 1985 - March 1986
 import sys
-import hero_characteristics
+import hero
 import map
 from tabulate import tabulate
 from time import sleep
@@ -58,10 +58,10 @@ def get_player_command(message):
 
 def choose_character():
     """User chooses which hero they wish to play as"""
-    character = hero_characteristics.heroes
     print("Possible Characters:")
-    for hero in character:
-        print(hero)
+    character = hero.heroes
+    for heroes in character:
+        print(heroes)
     while True:
         input = get_player_command("What character would you like to play?")
         player = input.title()
@@ -69,11 +69,9 @@ def choose_character():
         if player == "Flash":
             player = "The Flash"
         # print the choosen character with characteristics and inventory
-        if player in character:
+        if player in hero.heroes:
             print(f"Welcome, {player}!")
-            hero_characteristics.hero(character, player)
-            inventory = hero_characteristics.inventory[player]
-            hero_characteristics.hero_inventory(inventory, player)
+            hero.hero_check(player)
             vehicles.vehicle_owner(player)
             break
         else:
