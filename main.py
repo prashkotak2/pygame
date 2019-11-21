@@ -5,6 +5,7 @@ import hero_characteristics
 import map
 from tabulate import tabulate
 from time import sleep
+import vehicles
 
 
 def play():
@@ -73,6 +74,7 @@ def choose_character():
             hero_characteristics.hero(character, player)
             inventory = hero_characteristics.inventory[player]
             hero_characteristics.hero_inventory(inventory, player)
+            vehicles.vehicle_owner(player)
             break
         else:
             print("Invalid Character")

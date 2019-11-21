@@ -20,6 +20,18 @@ def hero_vehicle(vehicles):
         print(vehicle)
 
 
+def vehicle_owner(hero):
+    """Checks which vehicle is wonded by which hero"""
+    if hero == "Wonder Woman":
+        print(invisiblePlane)
+    elif hero == "The Flash":
+        print("The Flash has no vehicles")
+    else:
+        print(tumbler)
+        print(bat)
+        print(batpod)
+
+
 invisiblePlane = Vehicle("Invisible Plane", "Wonder Woman", 100, 20)
 tumbler = Vehicle("Tumbler", "Batman", 100, 50)
 batmobile = Vehicle("Batmobile", "Batman", 100, 50)
@@ -28,4 +40,4 @@ batpod = Vehicle("Batpod", "Batman", 50, 50)
 
 vehicles = [invisiblePlane, tumbler, batmobile, bat, batpod]
 
-hero_vehicle(vehicles)
+# hero_vehicle(vehicles)
