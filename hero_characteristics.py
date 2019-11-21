@@ -35,13 +35,6 @@ inventory = {"Wonder Woman": {"Lasso of Truth":
                             "protection when travelling at super speed",
                             "damage": 0, "protection": 100}}
              }
-# dictionary of DC heroes and their vehicles. Nested set for Batman
-# to account for multiple vehicles
-vehicles = {"Wonder Woman": "Invisible Plane",
-            "The Flash": None,
-            # Batman has a nested set of vehicles
-            "Batman": {"Tumbler", "Batmobile", "The Bat", "Batpod"}
-            }
 
 
 def hero(dictionary, hero):
@@ -66,22 +59,6 @@ def hero_inventory(inventory, hero):
             detail = inventory[item][characteristics]
             print(f"   {characteristics}: {detail}")
     print("\n")
-
-
-def hero_vehicle(vehicles):
-    """print a list of the hero's vehicles"""
-    for heroes in vehicles:
-        vehicle = vehicles[heroes]
-        # we need a nested loop for Batman because he has multiple vehicles
-        if heroes == "Batman":
-            batvehicles = vehicles["Batman"]
-            print(f"{heroes}'s vehicles:")
-            for results in batvehicles:
-                print(f"* {results}")
-        else:
-            print(f"{heroes}'s vehicles:")
-            print(f"* {vehicle}")
-        print("\n")
 
 #
 # hero()
