@@ -1,51 +1,17 @@
 # RPG based on the comic book series published by DC Comics
 # 12 issue run: April 1985 - March 1986
 import sys
-import hero_characteristics
+import hero
 import map
 from tabulate import tabulate
 from time import sleep
+import vehicles
 
 
 def play():
     """Print an action menu and allow for continous game play"""
-    words = r"""
-       _              _    _
-      | |            | |  (_)
-      | | _   _  ___ | |_  _   ___  ___
-  _   | || | | |/ __|| __|| | / __|/ _ \
- | |__| || |_| |\__ \| |_ | || (__|  __/
-  \____/  \__,_||___/ \__||_| \___|\___|
-  _
- | |                                      _
- | |      ___   __ _   __ _  _   _   ___ (_)
- | |     / _ \ / _` | / _` || | | | / _ \
- | |____|  __/| (_| || (_| || |_| ||  __/ _
- |______|\___| \__,_| \__, | \__,_| \___|(_)
-                       __/ |
-                      |___/
-   _____        _       _
-  / ____|      (_)     (_)
- | |      _ __  _  ___  _  ___    ___   _ __
- | |     | '__|| |/ __|| |/ __|  / _ \ | '_ \
- | |____ | |   | |\__ \| |\__ \ | (_) || | | |
-  \_____||_|   |_||___/|_||___/  \___/ |_| |_|
-  _____          __  _         _  _
- |_   _|        / _|(_)       (_)| |
-   | |   _ __  | |_  _  _ __   _ | |_  ___
-   | |  | '_ \ |  _|| || '_ \ | || __|/ _ \
-  _| |_ | | | || |  | || | | || || |_|  __/
- |_____||_| |_||_|  |_||_| |_||_| \__|\___|
-  ______              _    _
- |  ____|            | |  | |
- | |__    __ _  _ __ | |_ | |__   ___
- |  __|  / _` || '__|| __|| '_ \ / __|
- | |____| (_| || |   | |_ | | | |\__ \
- |______|\__,_||_|    \__||_| |_||___/
-"""
-    for char in words:
-        sleep(0.005)
-        print(char, end=" ", flush=True)
+    # print title of game
+    # intro_text()
     # valid directions and actions for the characters
     action = ["quit", "characters", "map"]
     directions = ["north", "south", "east", "west"]
@@ -92,10 +58,10 @@ def get_player_command(message):
 
 def choose_character():
     """User chooses which hero they wish to play as"""
-    character = hero_characteristics.heroes
     print("Possible Characters:")
-    for hero in character:
-        print(hero)
+    character = hero.heroes
+    for heroes in character:
+        print(heroes)
     while True:
         input = get_player_command("What character would you like to play?")
         player = input.title()
@@ -103,11 +69,10 @@ def choose_character():
         if player == "Flash":
             player = "The Flash"
         # print the choosen character with characteristics and inventory
-        if player in character:
+        if player in hero.heroes:
             print(f"Welcome, {player}!")
-            hero_characteristics.hero(character, player)
-            inventory = hero_characteristics.inventory[player]
-            hero_characteristics.hero_inventory(inventory, player)
+            hero.hero_check(player)
+            vehicles.vehicle_owner(player)
             break
         else:
             print("Invalid Character")
@@ -151,6 +116,47 @@ def print_actions(action):
     for user_action in action:
         print(f"* {user_action}")
     print("\n")
+
+
+def intro_text():
+    """Prints title of game in a typewriter style"""
+    words = r"""
+       _              _    _
+      | |            | |  (_)
+      | | _   _  ___ | |_  _   ___  ___
+  _   | || | | |/ __|| __|| | / __|/ _ \
+ | |__| || |_| |\__ \| |_ | || (__|  __/
+  \____/  \__,_||___/ \__||_| \___|\___|
+  _
+ | |                                      _
+ | |      ___   __ _   __ _  _   _   ___ (_)
+ | |     / _ \ / _` | / _` || | | | / _ \
+ | |____|  __/| (_| || (_| || |_| ||  __/ _
+ |______|\___| \__,_| \__, | \__,_| \___|(_)
+                       __/ |
+                      |___/
+   _____        _       _
+  / ____|      (_)     (_)
+ | |      _ __  _  ___  _  ___    ___   _ __
+ | |     | '__|| |/ __|| |/ __|  / _ \ | '_ \
+ | |____ | |   | |\__ \| |\__ \ | (_) || | | |
+  \_____||_|   |_||___/|_||___/  \___/ |_| |_|
+  _____          __  _         _  _
+ |_   _|        / _|(_)       (_)| |
+   | |   _ __  | |_  _  _ __   _ | |_  ___
+   | |  | '_ \ |  _|| || '_ \ | || __|/ _ \
+  _| |_ | | | || |  | || | | || || |_|  __/
+ |_____||_| |_||_|  |_||_| |_||_| \__|\___|
+  ______              _    _
+ |  ____|            | |  | |
+ | |__    __ _  _ __ | |_ | |__   ___
+ |  __|  / _` || '__|| __|| '_ \ / __|
+ | |____| (_| || |   | |_ | | | |\__ \
+ |______|\__,_||_|    \__||_| |_||___/
+"""
+    for char in words:
+        sleep(0.005)
+        print(char, end=" ", flush=True)
 
 
 play()
