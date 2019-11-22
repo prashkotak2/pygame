@@ -24,3 +24,24 @@ inventory = {"Wonder Woman": {"Lasso of Truth":
                             "protection when travelling at super speed",
                             "damage": 0, "protection": 100}}
              }
+
+
+def player_inventory(player, inventory):
+    for hero in inventory:
+        if player == "The Flash":
+            for flash in inventory[player]:
+                description = inventory[player]["description"]
+                damage = inventory[player]["damage"]
+                protection = inventory[player]["protection"]
+                print(f"{player}'s {flash} - {description}")
+                print(f"damage: {damage}")
+                print(f"protection: {protection}")
+        else:
+            for list in inventory[player]:
+                for  item in inventory[player][list]:
+                    print(f"{player}'s {item}'")
+                    description = inventory[player][list]["description"]
+                    damage = inventory[player][list]["damage"]
+                    protection = inventory[player][list]["protection"]
+
+player_inventory("The Flash", inventory)
