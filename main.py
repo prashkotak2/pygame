@@ -6,6 +6,7 @@ import map
 from tabulate import tabulate
 from time import sleep
 import vehicles
+import inventory
 
 
 def play():
@@ -73,6 +74,8 @@ def choose_character():
             print(f"Welcome, {player}!")
             hero.hero_check(player)
             vehicles.vehicle_owner(player)
+            inventory.player_inventory(player, inventory.inventory)
+            print("\n")
             break
         else:
             print("Invalid Character")
@@ -85,6 +88,7 @@ def choose_map():
     print("Cities")
     for place in city:
         print(place)
+    print("\n")
     while True:
         # player chooses which city level they want play and then a random
         # 5x5 map is generated and printed
