@@ -31,7 +31,7 @@ def vehicle_owner(hero):
         print(bat)
         print(batpod)
 
-
+# define hero's vehciles and characteristics
 invisiblePlane = Vehicle("Invisible Plane", "Wonder Woman", 100, 20)
 tumbler = Vehicle("Tumbler", "Batman", 100, 50)
 batmobile = Vehicle("Batmobile", "Batman", 100, 50)

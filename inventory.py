@@ -27,6 +27,7 @@ inventory = {"Wonder Woman": {"Lasso of Truth":
 
 
 def player_inventory(player, inventory):
+    """Print out the inventory for the choosen character"""
     for item in inventory[player]:
         description = inventory[player][item]["description"]
         damage = inventory[player][item]["damage"]

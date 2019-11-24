@@ -36,6 +36,7 @@ class Flash(Hero):
         self.hp = 90
 
 
+# assign variables to hero classes and put them in a list
 WonderWoman = WonderWoman()
 Batman = Batman()
 Flash = Flash()

@@ -27,10 +27,12 @@ def play():
             print(f"{action_input.title()}!")
             if action_input == "quit":
                 sys.exit()
+            # after the map is choosen, player chooses character
             elif action_input == "map":
                 choose_map()
                 choose_character()
                 add_action(action)
+            # after the character is choosen, player chooses the map to play
             elif action_input == "characters":
                 choose_character()
                 choose_map()
