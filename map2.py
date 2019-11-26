@@ -125,9 +125,9 @@ class SuppliesTile(MapTile):
 
 
 class BigBoss(MapTile):
-    """Position that contains the escape pod"""
+    """Position that contains the main villin of the level"""
     def modify_player(self, player):
-        """Player wins the level if they bet the big boss"""
+        """Player wins the level if they beat the big boss"""
         player.victory = True
         sys.exit()
 
@@ -135,6 +135,8 @@ class BigBoss(MapTile):
         return """
 
         """
+
+class EnemyTile(MapTile):
 
 
 def append_list(dictionary, list):
